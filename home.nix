@@ -114,23 +114,7 @@ in {
       background_opacity 0.8
     '';
   };
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
-    settings = {
-      nix_shell = {
-        disabled = false;
-        impure_msg = "";
-        symbol = "";
-        format = "[$symbol$state]($style) ";
-      };
-      shlvl = {
-        disabled = false;
-        symbol = "λ ";
-      };
-      haskell.symbol = " ";
-    };
-  };
+  programs.starship = import ./starship.nix;
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
