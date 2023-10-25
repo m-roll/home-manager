@@ -21,8 +21,6 @@ let
       sha256 = "sha256-j5eUYEwFjWoIkncsh2mtpnKC72CD9VUa0bEohxBymsc=";
     };
   };
-  nerd-fonts = ( pkgs.nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; });
-
 in {
   home.username = "mrr";
   home.homeDirectory = "/home/mrr";
@@ -44,29 +42,21 @@ in {
     pkgs.htop
     pkgs.zsh
     pkgs.git
-    nerd-fonts
-
-    # LSPs
-    pkgs.luajitPackages.lua-lsp
-    pkgs.haskellPackages.haskell-language-server
 
     pkgs.openssl
     pkgs.xclip
-    pkgs.nodePackages.prettier
-    pkgs.nixfmt
-    pkgs.luaformatter
 
     # video recording + playback
     pkgs.simplescreenrecorder
     pkgs.vlc
 
-    # langs
-    pkgs.ghc
-    pkgs.guile
-
     # gaming
     pkgs.steam
-  ] ++ import ./lsp.nix { inherit pkgs; };
+
+    (import ./nerdfonts.nix { inherit pkgs; })
+  ] ++ import ./lsp.nix { inherit pkgs; }
+  ++ import ./langs.nix { inherit pkgs; };
+        # gaming
 
   home.sessionVariables = {
     EDITOR = "nvim";
