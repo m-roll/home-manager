@@ -54,8 +54,8 @@ in {
     pkgs.steam
 
     (import ./nerdfonts.nix { inherit pkgs; })
-  ] ++ import ./lsp.nix { inherit pkgs; }
-  ++ import ./langs.nix { inherit pkgs; };
+  ] ++ import ./pkgs/lsp.nix { inherit pkgs; }
+  ++ import ./pkgs/langs.nix { inherit pkgs; };
         # gaming
 
   home.sessionVariables = {
