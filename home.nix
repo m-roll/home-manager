@@ -66,7 +66,7 @@ in {
 
     # gaming
     pkgs.steam
-  ];
+  ] ++ import ./lsp.nix { inherit pkgs; };
 
   home.sessionVariables = {
     EDITOR = "nvim";
