@@ -5,13 +5,9 @@ let
     name = "mrr-config";
     src = ./neovim;
   };
+  # Themes for kitty soured from https://github.com/dexpota/kitty-themes/tree/master/themes
   kitty-theme-name = "ayu_mirage";
-  kitty-themes = pkgs.fetchFromGitHub {
-    owner = "dexpota";
-    repo = "kitty-themes";
-    rev = "1.0.0";
-    sha256 =  "sha256-ySpv84kZSfJQl5/rIECfYhZfcb4j2RPH3JaNpaELF8c=";
-  };
+  font-name = "FiraCode Nerd Font";
   rose-pine = pkgs.vimUtils.buildVimPlugin {
     name = "rose-pine";
     src = pkgs.fetchFromGitHub {
@@ -56,7 +52,6 @@ in {
     (import ./nerdfonts.nix { inherit pkgs; })
   ] ++ import ./pkgs/lsp.nix { inherit pkgs; }
   ++ import ./pkgs/langs.nix { inherit pkgs; };
-        # gaming
 
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -77,7 +72,6 @@ in {
     plugins = [
       myNvimConfigPlugin
       pkgs.vimPlugins.telescope-nvim
-      # pkgs.vimPlugins.ale -- ALE with the other stuff here doesn't make sense.
       pkgs.vimPlugins.nvim-lspconfig
       pkgs.vimPlugins.nvim-cmp
       rose-pine
@@ -103,17 +97,7 @@ in {
     userName = "Matt Rollender";
   };
   fonts.fontconfig.enable = true;
-  programs.kitty = {
-    enable = true;
-    font = {
-      name = "FiraCode Nerd Font";
-      size = 10;
-    };
-    extraConfig = ''
-      include ${kitty-themes}/themes/${kitty-theme-name}.conf
-      background_opacity 0.8
-    '';
-  };
+  programs.kitty = import ./kitty.nix { inherit pkgs; inherit kitty-theme-name; inherit font-name; };  
   programs.starship = import ./starship.nix;
   programs.zsh = {
     enable = true;
@@ -124,21 +108,6 @@ in {
     };
     history = { };
   };
-
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
-  home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-  };
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
