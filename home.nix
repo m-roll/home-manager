@@ -1,55 +1,85 @@
 { config, pkgs, lib, ... }:
 
 let
-  myNvimConfigPlugin = pkgs.vimUtils.buildVimPlugin {
+  nvim-config = pkgs.vimUtils.buildVimPlugin {
     name = "mrr-config";
-    src = ./neovim;
-  };
-  # Themes for kitty soured from https://github.com/dexpota/kitty-themes/tree/master/themes
-  kitty-theme-name = "ayu_mirage";
-  font-name = "FiraCode Nerd Font";
-  rose-pine = pkgs.vimUtils.buildVimPlugin {
-    name = "rose-pine";
     src = pkgs.fetchFromGitHub {
-      owner = "rose-pine";
-      repo = "neovim";
-      rev = "v1.2.0";
-      sha256 = "sha256-j5eUYEwFjWoIkncsh2mtpnKC72CD9VUa0bEohxBymsc=";
+      owner = "m-roll";
+      rev = "e96bddd";
+      repo = "nvim-config";
+      sha256 = "sha256-JBDBJ8ZTHf2+8ePWYnwaC7dd2ZE3cuRR+mpKR24qOyI=";
     };
   };
+# Themes for kitty soured from https://github.com/dexpota/kitty-themes/tree/master/themes
+kitty-theme-name = "ayu_mirage";
+font-name = "FiraCode Nerd Font";
+wallpaper_out = "wallpapers/wallpaper.jpg";
+# wallpaper_in = wallpapers/6yvigpgoq7791.jpg;
+wallpaper_in = wallpapers/pexels-liam-moore-11372619.jpg;
+rose-pine = pkgs.vimUtils.buildVimPlugin {
+  name = "rose-pine";
+  src = pkgs.fetchFromGitHub {
+    owner = "rose-pine";
+    repo = "neovim";
+    rev = "v1.2.0";
+    sha256 = "sha256-j5eUYEwFjWoIkncsh2mtpnKC72CD9VUa0bEohxBymsc=";
+  };
+};
 in {
   home.username = "mrr";
   home.homeDirectory = "/home/mrr";
 
-  # This is a hack: unstable NixOS and 23.05 home-manager are conflicting here
+  services.picom = {
+    enable = true;
+    fade = true;
+    opacityRules = [
+      "90:class_g = 'URxvt' && focused"
+        "60:class_g = 'URxvt' && !focused"
+    ];
+  };
+
+# This is a hack: unstable NixOS and 23.05 home-manager are conflicting here
   manual.manpages.enable = false;
 
-  # Don't change this
+# Don't change this
   home.stateVersion = "23.05";
-  
+
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
-      "steam"
+    "steam"
       "steam-original"
     ];
-
+  programs.feh = {
+    enable = true;
+  };
+# TODO want to use spotifyd with dunst
+  services.dunst = {
+    enable = true;
+    settings = {
+      spotify = {
+        appname = "Spotify";
+        urgency = "normal";
+        script = "~/.scripts/spotify_log.sh";  # https://wittchen.io/posts/spotify-song-in-i3-status-bar/
+      };
+    };
+  };
   home.packages = [
     pkgs.brave
-    pkgs.htop
-    pkgs.zsh
-    pkgs.git
+      pkgs.htop
+      pkgs.zsh
+      pkgs.git
 
-    pkgs.openssl
-    pkgs.xclip
+      pkgs.openssl
+      pkgs.xclip
 
-    # video recording + playback
-    pkgs.simplescreenrecorder
-    pkgs.vlc
+# video recording + playback
+      pkgs.simplescreenrecorder
+      pkgs.vlc
 
-    # gaming
-    pkgs.steam
+# gaming
+      pkgs.steam
 
-    (import ./nerdfonts.nix { inherit pkgs; })
+      (import ./nerdfonts.nix { inherit pkgs; })
   ] ++ import ./pkgs/lsp.nix { inherit pkgs; }
   ++ import ./pkgs/langs.nix { inherit pkgs; };
 
@@ -64,13 +94,13 @@ in {
 
   programs.neovim = {
     enable = true;
-    # TODO: Can I get away with not requiring here?
+# TODO: Can I get away with not requiring here?
     extraLuaConfig = ''
       require("mrr")
-    '';
-    # todo use inherits expr here.
+      '';
+# todo use inherits expr here.
     plugins = [
-      myNvimConfigPlugin
+      nvim-config
       pkgs.vimPlugins.telescope-nvim
       pkgs.vimPlugins.nvim-lspconfig
       pkgs.vimPlugins.nvim-cmp
@@ -106,8 +136,13 @@ in {
       enable = true;
       plugins = [ "git" "git-extras" "man" "sudo" "tmux" ];
     };
+    initExtra = ''
+      feh --bg-fill ~/${wallpaper_out}
+    '';
     history = { };
   };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  home.file.${wallpaper_out}.source = wallpaper_in;
 }
