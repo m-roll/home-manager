@@ -100,7 +100,7 @@ in {
       '';
 # todo use inherits expr here.
     plugins = [
-      nvim-config
+    nvim-config
       pkgs.vimPlugins.telescope-nvim
       pkgs.vimPlugins.nvim-lspconfig
       pkgs.vimPlugins.nvim-cmp
