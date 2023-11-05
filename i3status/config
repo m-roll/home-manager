@@ -1,0 +1,7 @@
+order += "tztime local"
+order += "cpu_temperature 0"
+
+
+tztime local {
+  format = "%Y-%m-%d %I:%M:%S %p"
+}
