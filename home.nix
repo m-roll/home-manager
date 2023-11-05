@@ -48,10 +48,6 @@ in {
     builtins.elem (lib.getName pkg) [
     "steam"
       "steam-original"
-    ];
-  programs.feh = {
-    enable = true;
-  };
 # TODO want to use spotifyd with dunst
   services.dunst = {
     enable = true;
@@ -62,6 +58,10 @@ in {
         script = "~/.scripts/spotify_log.sh";  # https://wittchen.io/posts/spotify-song-in-i3-status-bar/
       };
     };
+  };
+    ];
+  programs.feh = {
+    enable = true;
   };
   home.packages = [
     pkgs.brave
@@ -145,4 +145,17 @@ in {
   programs.home-manager.enable = true;
 
   home.file.${wallpaper_out}.source = wallpaper_in;
+  home.file."i3/config".source = ./i3/config;
+  home.file."i3status/config".source = ./i3status/config;
+# TODO want to use spotifyd with dunst
+  services.dunst = {
+    enable = true;
+    settings = {
+      spotify = {
+        appname = "Spotify";
+        urgency = "normal";
+        script = "~/.scripts/spotify_log.sh";  # https://wittchen.io/posts/spotify-song-in-i3-status-bar/
+      };
+    };
+  };
 }
