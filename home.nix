@@ -144,6 +144,6 @@ in {
   programs.home-manager.enable = true;
 
   home.file.${wallpaper_out}.source = wallpaper_in;
-  home.file."i3/config".source = ./i3/config;
-  home.file."i3status/config".source = ./i3status/config;
+  home.file.".config/i3/config".source = ./i3/config;
+  home.file.".config/i3status/config".source = ./i3status/config;
 }
