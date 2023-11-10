@@ -22,7 +22,7 @@
          inherit pkgs;
          modules = [ ./home.nix ];
 	 extraSpecialArgs = {
-           my-nvim = my-nvim.legacyPackages.${system}.default;
+           my-nvim = my-nvim.legacyPackages.${system}.neovim-unwrapped;
 	 };
        };
     };

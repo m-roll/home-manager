@@ -26,11 +26,11 @@
         "rose-pine": "rose-pine"
       },
       "locked": {
-        "lastModified": 1699646294,
-        "narHash": "sha256-bVx1lmSMmP0CZ7DhVMY7odS1ac2uRvIqKE4U7X6RGe8=",
+        "lastModified": 1699647527,
+        "narHash": "sha256-bubH5lspB9Op5G8k2xZAwm60auyfQsdUNe2Yg93Zet4=",
         "owner": "m-roll",
         "repo": "nvim-config",
-        "rev": "ffb8a69264cd3e8619a5467946f5f8b93ce8875d",
+        "rev": "6e6c3bbe81fe3318deed983d437f95e8a61b11e2",
         "type": "github"
       },
       "original": {
