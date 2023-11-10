@@ -6,7 +6,7 @@ let
   font-name = "FiraCode Nerd Font";
   wallpaper_out = "wallpapers/wallpaper.jpg";
   wallpaper_in = wallpapers/pexels-liam-moore-11372619.jpg;
-  inherit (specialArgs) my-nvim;
+  inherit (specialArgs) my-nvim-config;
 in {
   home.username = "mrr";
   home.homeDirectory = "/home/mrr";
@@ -75,8 +75,7 @@ in {
 
   programs.neovim = {
     enable = true;
-    package = my-nvim;
-  };
+  } // my-nvim-config;
   # TODO: tmux is manager by the zsh plugin, not
   # home-manager directly. This means escapeTime, and 
   # other settings, won't be honored.

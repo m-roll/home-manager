@@ -8,6 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     my-nvim.url = "github:m-roll/nvim-config";
+    my-nvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, home-manager, my-nvim, ...}: 
@@ -22,7 +23,7 @@
          inherit pkgs;
          modules = [ ./home.nix ];
 	 extraSpecialArgs = {
-           my-nvim = my-nvim.legacyPackages.${system}.neovim-unwrapped;
+           my-nvim-config = my-nvim.neovim-config.${system}.default;
 	 };
        };
     };
