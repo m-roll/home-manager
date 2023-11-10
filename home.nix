@@ -1,30 +1,11 @@
 { config, pkgs, lib, ... }:
 
 let
-  nvim-config = pkgs.vimUtils.buildVimPlugin {
-    name = "mrr-config";
-    src = pkgs.fetchFromGitHub {
-      owner = "m-roll";
-      rev = "e96bddd";
-      repo = "nvim-config";
-      sha256 = "sha256-JBDBJ8ZTHf2+8ePWYnwaC7dd2ZE3cuRR+mpKR24qOyI=";
-    };
-  };
-# Themes for kitty soured from https://github.com/dexpota/kitty-themes/tree/master/themes
-kitty-theme-name = "ayu_mirage";
-font-name = "FiraCode Nerd Font";
-wallpaper_out = "wallpapers/wallpaper.jpg";
-# wallpaper_in = wallpapers/6yvigpgoq7791.jpg;
-wallpaper_in = wallpapers/pexels-liam-moore-11372619.jpg;
-rose-pine = pkgs.vimUtils.buildVimPlugin {
-  name = "rose-pine";
-  src = pkgs.fetchFromGitHub {
-    owner = "rose-pine";
-    repo = "neovim";
-    rev = "v1.2.0";
-    sha256 = "sha256-j5eUYEwFjWoIkncsh2mtpnKC72CD9VUa0bEohxBymsc=";
-  };
-};
+  # Themes for kitty soured from https://github.com/dexpota/kitty-themes/tree/master/themes
+  kitty-theme-name = "ayu_mirage";
+  font-name = "FiraCode Nerd Font";
+  wallpaper_out = "wallpapers/wallpaper.jpg";
+  wallpaper_in = wallpapers/pexels-liam-moore-11372619.jpg;
 in {
   home.username = "mrr";
   home.homeDirectory = "/home/mrr";
@@ -93,24 +74,7 @@ in {
 
   programs.neovim = {
     enable = true;
-# TODO: Can I get away with not requiring here?
-    extraLuaConfig = ''
-      require("mrr")
-      '';
-# todo use inherits expr here.
-    plugins = [
-    nvim-config
-      pkgs.vimPlugins.telescope-nvim
-      pkgs.vimPlugins.nvim-lspconfig
-      pkgs.vimPlugins.nvim-cmp
-      rose-pine
-      pkgs.vimPlugins.vim-prettier
-      pkgs.vimPlugins.trouble-nvim
-      pkgs.vimPlugins.nvim-web-devicons
-      (pkgs.vimPlugins.nvim-treesitter.withPlugins
-        (plugins: pkgs.tree-sitter.allGrammars))
-    ];
-
+    package = pkgs.neovim;
   };
   # TODO: tmux is manager by the zsh plugin, not
   # home-manager directly. This means escapeTime, and 
