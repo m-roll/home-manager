@@ -7,7 +7,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    my-nvim.url = "github:m-roll/nvim-config";
+    nvim-config.url = "github:m-roll/nvim-config";
   };
 
   outputs = { self, nixpkgs, home-manager, my-nvim, ...}: 
@@ -19,11 +19,8 @@
   in {
     homeConfigurations = {
       "mrr" = home-manager.lib.homeManagerConfiguration {
-         inherit pkgs;
+         inherit pkgs my-nvim;
          modules = [ ./home.nix ];
-	 extraSpecialArgs = {
-           my-nvim = my-nvim.legacyPackages.${system}.default;
-	 };
        };
     };
   };

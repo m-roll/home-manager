@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, specialArgs, ... }:
 
 let
   # Themes for kitty soured from https://github.com/dexpota/kitty-themes/tree/master/themes
@@ -6,6 +6,7 @@ let
   font-name = "FiraCode Nerd Font";
   wallpaper_out = "wallpapers/wallpaper.jpg";
   wallpaper_in = wallpapers/pexels-liam-moore-11372619.jpg;
+  inherit (specialArgs) my-nvim;
 in {
   home.username = "mrr";
   home.homeDirectory = "/home/mrr";
@@ -74,7 +75,7 @@ in {
 
   programs.neovim = {
     enable = true;
-    package = pkgs.neovim;
+    package = my-nvim;
   };
   # TODO: tmux is manager by the zsh plugin, not
   # home-manager directly. This means escapeTime, and 

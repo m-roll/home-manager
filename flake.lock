@@ -20,7 +20,41 @@
         "type": "github"
       }
     },
+    "my-nvim": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "rose-pine": "rose-pine"
+      },
+      "locked": {
+        "lastModified": 1699646294,
+        "narHash": "sha256-bVx1lmSMmP0CZ7DhVMY7odS1ac2uRvIqKE4U7X6RGe8=",
+        "owner": "m-roll",
+        "repo": "nvim-config",
+        "rev": "ffb8a69264cd3e8619a5467946f5f8b93ce8875d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "m-roll",
+        "repo": "nvim-config",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
+      "locked": {
+        "lastModified": 1699646264,
+        "narHash": "sha256-njnmvAon72WlDA7lN5lywKqxI00dA7j7lyjHp0lmwSE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "cc0b49cc27e98e6b8375fdae0a5077aac1458d90",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1699343069,
         "narHash": "sha256-s7BBhyLA6MI6FuJgs4F/SgpntHBzz40/qV0xLPW6A1Q=",
@@ -36,45 +70,11 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1699641439,
-        "narHash": "sha256-y8ZGra71AOx5RONTr9Xaz1eT6XJEYqHMRmEQpRcTilc=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "b53d47f5ef791f8cffc298c043393c8c44433933",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nvim-config": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_2",
-        "rose-pine": "rose-pine"
-      },
-      "locked": {
-        "lastModified": 1699640798,
-        "narHash": "sha256-jZ/JFKyAVSvo7nShVUZt5jFoB6SzhpIP3TEx33YrA9g=",
-        "owner": "m-roll",
-        "repo": "nvim-config",
-        "rev": "60fcda901e23aaf4f671ae5bb907bf1a29f3fc54",
-        "type": "github"
-      },
-      "original": {
-        "owner": "m-roll",
-        "repo": "nvim-config",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
-        "nvim-config": "nvim-config"
+        "my-nvim": "my-nvim",
+        "nixpkgs": "nixpkgs_2"
       }
     },
     "rose-pine": {
