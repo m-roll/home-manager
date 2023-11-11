@@ -73,9 +73,9 @@ in {
 
   programs.obs-studio.enable = true;
 
-  programs.neovim = {
+  programs.mrr-neovim= {
     enable = true;
-  } // my-nvim-config;
+  };
   # TODO: tmux is manager by the zsh plugin, not
   # home-manager directly. This means escapeTime, and 
   # other settings, won't be honored.

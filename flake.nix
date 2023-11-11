@@ -21,10 +21,7 @@
     homeConfigurations = {
       "mrr" = home-manager.lib.homeManagerConfiguration {
          inherit pkgs;
-         modules = [ ./home.nix ];
-	 extraSpecialArgs = {
-           my-nvim-config = my-nvim.neovim-config.${system}.default;
-	 };
+         modules = [ ./home.nix my-nvim.nixosModules."home-manager" ];
        };
     };
   };
