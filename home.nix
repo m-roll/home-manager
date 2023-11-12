@@ -15,9 +15,20 @@ in {
     enable = true;
     fade = true;
     opacityRules = [
-      "90:class_g = 'URxvt' && focused"
-        "60:class_g = 'URxvt' && !focused"
+      "95:class_g = 'URxvt' && focused"
+      "60:class_g = 'URxvt' && !focused"
     ];
+    settings = {
+      blur = {
+        method = "dual_kawase";
+        strength = 3;
+      };
+      blur-background-fixed = true;
+      blur-background-exclude = [
+        "window_type = 'dock'"
+        "window_type = 'desktop'"
+      ];
+    };
   };
 
 # This is a hack: unstable NixOS and 23.05 home-manager are conflicting here
@@ -83,6 +94,12 @@ in {
   programs.tmux = {
     enable = true;
     escapeTime = 10;
+    baseIndex = 1;
+    plugins = [
+      pkgs.tmuxPlugins.sensible
+      pkgs.tmuxPlugins.vim-tmux-navigator
+      pkgs.tmuxPlugins.catppuccin
+    ];
   };
   programs.git = {
     enable = true;
@@ -97,10 +114,14 @@ in {
     enableAutosuggestions = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "git-extras" "man" "sudo" "tmux" ];
+      plugins = [ "git" "git-extras" "man" "sudo" ];
     };
+    profileExtra = ''
+      export ZSH_TMUX_AUTOSTART=true
+    '';
     initExtra = ''
       feh --bg-fill ~/${wallpaper_out}
+      [ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
     '';
     history = { };
   };
