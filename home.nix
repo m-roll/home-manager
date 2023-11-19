@@ -14,6 +14,11 @@ in {
   services.picom = {
     enable = true;
     fade = true;
+    fadeDelta = 10;
+    fadeSteps = [
+      0.25
+      0.28
+    ];
     opacityRules = [
       "95:class_g = 'URxvt' && focused"
       "60:class_g = 'URxvt' && !focused"
@@ -71,6 +76,8 @@ in {
 # gaming
       pkgs.steam
 
+      pkgs.inkscape-with-extensions
+
       (import ./nerdfonts.nix { inherit pkgs; })
   ] ++ import ./pkgs/lsp.nix { inherit pkgs; }
   ++ import ./pkgs/langs.nix { inherit pkgs; };
@@ -125,10 +132,19 @@ in {
     '';
     history = { };
   };
+
+  xresources.properties = {
+    "xft.dpi" = 96;
+    "xft.antialias" = true;
+    "xft.hinting" = true;
+    "xft.autohint" = false;
+    "xft.hintstyle" = "hintslight";
+  };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   home.file.${wallpaper_out}.source = wallpaper_in;
-  home.file.".config/i3/config".source = ./i3/config;
-  home.file.".config/i3status/config".source = ./i3status/config;
+  home.file.".config/i3/config".text = (import ./static/i3/config.nix { dmenu_opts = "-fn \"FiraCode Nerd Font\" -nf \"#f0d48b\" -sb \"#f0d48b\" -sf \"#1b1e26\""; });
+  home.file.".dmenurc".source = ./static/.dmenurc;
+  home.file.".config/i3status/config".source = ./static/i3status/config;
 }
