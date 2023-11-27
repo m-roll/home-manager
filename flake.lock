@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1699663185,
-        "narHash": "sha256-hI3CZPINBWstkMN+ptyzWibw5eRtFCiEvO7zR61bGBs=",
+        "lastModified": 1701071203,
+        "narHash": "sha256-lQywA7QU/vzTdZ1apI0PfgCWNyQobXUYghVrR5zuIeM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "691cbcc03af6ad1b5384c0e0e0b5f2298f58c5ce",
+        "rev": "db1878f013b52ba5e4034db7c1b63e8d04173a86",
         "type": "github"
       },
       "original": {
@@ -28,11 +28,11 @@
         "rose-pine": "rose-pine"
       },
       "locked": {
-        "lastModified": 1699733972,
-        "narHash": "sha256-oKCUfjdXlCEBv3tU+3oKdywP6IvAt+cE1K8ChNZmYJM=",
+        "lastModified": 1701122331,
+        "narHash": "sha256-/kzcpPMf3G1w29+pHyo09O0h4u63YVQ60CPGzYty7gU=",
         "owner": "m-roll",
         "repo": "nvim-config",
-        "rev": "c776a11abd8b5eb21bb61d6c397bfecaa0d18644",
+        "rev": "7050450c23e5d648ff3eb43ad3be21915e43200e",
         "type": "github"
       },
       "original": {
@@ -43,11 +43,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1699343069,
-        "narHash": "sha256-s7BBhyLA6MI6FuJgs4F/SgpntHBzz40/qV0xLPW6A1Q=",
+        "lastModified": 1701040486,
+        "narHash": "sha256-vawYwoHA5CwvjfqaT3A5CT9V36Eq43gxdwpux32Qkjw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "ec750fd01963ab6b20ee1f0cb488754e8036d89d",
+        "rev": "45827faa2132b8eade424f6bdd48d8828754341a",
         "type": "github"
       },
       "original": {

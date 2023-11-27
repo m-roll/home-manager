@@ -77,6 +77,7 @@ in {
       pkgs.steam
 
       pkgs.inkscape-with-extensions
+      pkgs.gpx-viewer
 
       (import ./nerdfonts.nix { inherit pkgs; })
   ] ++ import ./pkgs/lsp.nix { inherit pkgs; }
