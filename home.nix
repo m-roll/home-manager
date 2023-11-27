@@ -80,7 +80,7 @@ in {
       pkgs.gpx-viewer
 
       (import ./nerdfonts.nix { inherit pkgs; })
-  ] ++ import ./pkgs/lsp.nix { inherit pkgs; }
+  ]
   ++ import ./pkgs/langs.nix { inherit pkgs; };
 
   home.sessionVariables = {
@@ -94,6 +94,7 @@ in {
 
   programs.mrr-neovim= {
     enable = true;
+    include_lsps = true;
   };
   # TODO: tmux is manager by the zsh plugin, not
   # home-manager directly. This means escapeTime, and 
