@@ -79,6 +79,10 @@ in {
       pkgs.inkscape-with-extensions
       pkgs.gpx-viewer
 
+      pkgs.transmission
+      
+      pkgs.slack-term
+
       (import ./nerdfonts.nix { inherit pkgs; })
   ]
   ++ import ./pkgs/langs.nix { inherit pkgs; };
@@ -109,6 +113,24 @@ in {
       pkgs.tmuxPlugins.vim-tmux-navigator
       pkgs.tmuxPlugins.catppuccin
     ];
+    extraConfig = ''
+      set -g @catppuccin_window_left_separator "█"
+      set -g @catppuccin_window_right_separator "█ "
+      set -g @catppuccin_window_number_position "right"
+      set -g @catppuccin_window_middle_separator "  █"
+
+      set -g @catppuccin_window_default_fill "number"
+
+      set -g @catppuccin_window_current_fill "number"
+      set -g @catppuccin_window_current_text "#{pane_current_path}"
+
+      set -g @catppuccin_status_modules_right "application session date_time"
+      set -g @catppuccin_status_left_separator  ""
+      set -g @catppuccin_status_right_separator " "
+      set -g @catppuccin_status_right_separator_inverse "yes"
+      set -g @catppuccin_status_fill "all"
+      set -g @catppuccin_status_connect_separator "no"
+      '';
   };
   programs.git = {
     enable = true;
