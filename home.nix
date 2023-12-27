@@ -62,26 +62,28 @@ in {
   };
   home.packages = [
     pkgs.brave
-      pkgs.htop
-      pkgs.zsh
-      pkgs.git
+    pkgs.firefox-unwrapped
+    pkgs.htop
+    pkgs.zsh
+    pkgs.git
 
-      pkgs.openssl
-      pkgs.xclip
+    pkgs.openssl
+    pkgs.xclip
 
 # video recording + playback
-      pkgs.simplescreenrecorder
-      pkgs.vlc
+    pkgs.simplescreenrecorder
+    pkgs.vlc
 
 # gaming
-      pkgs.steam
+    pkgs.steam
 
-      pkgs.inkscape-with-extensions
-      pkgs.gpx-viewer
+    pkgs.inkscape-with-extensions
+    pkgs.gpx-viewer
 
-      pkgs.transmission
-      
-      pkgs.slack-term
+    pkgs.transmission
+    
+    pkgs.slack-term
+
 
       (import ./nerdfonts.nix { inherit pkgs; })
   ]
