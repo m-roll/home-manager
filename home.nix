@@ -44,9 +44,10 @@ in {
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
-    "steam"
+      "steam"
       "steam-original"
-      ];
+      "discord"
+    ];
   services.dunst = {
     enable = true;
     settings = {
