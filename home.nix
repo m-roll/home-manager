@@ -85,6 +85,9 @@ in {
     
     pkgs.slack-term
 
+    pkgs.discord
+    pkgs.gtkcord4
+
 
       (import ./nerdfonts.nix { inherit pkgs; })
   ]
