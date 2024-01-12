@@ -48,6 +48,17 @@ in {
       "steam-original"
       "discord"
     ];
+
+  programs.ssh = {
+    enable = true;
+    addKeysToAgent = "yes";
+    matchBlocks."github.com".forwardAgent = true;
+  };
+  programs.keychain = {
+    enable = true;
+    enableZshIntegration = true;
+    keys = [ "id_rsa" ];
+  };
   services.dunst = {
     enable = true;
     settings = {
@@ -87,6 +98,7 @@ in {
 
     pkgs.discord
     pkgs.gtkcord4
+    pkgs.r2modman
 
 
       (import ./nerdfonts.nix { inherit pkgs; })
