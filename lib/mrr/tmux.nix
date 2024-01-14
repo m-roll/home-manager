@@ -1,11 +1,6 @@
-{ config, pkgs, lib, ... }:
-let cfg = config.mrr.tmux;
-in {
-  options.mrr.tmux = {
-    enable = lib.mkEnableOption "Tmux plugins and theming";
-  };
+{ config, pkgs, lib, ... }: {
 
-  config = lib.mkIf cfg.enable {
+  config = {
     programs.tmux = {
       enable = true;
       escapeTime = 10;

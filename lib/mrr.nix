@@ -4,10 +4,12 @@
     ./mrr/fonts.nix
     ./mrr/tmux.nix
     ./mrr/media.nix
-    ./mrr/dispay.nix
+    ./mrr/display.nix
     ./mrr/browsers.nix
     ./mrr/development.nix
   ];
+
+  options = { mrr = { }; };
 
   config = { mrr = { }; };
 }

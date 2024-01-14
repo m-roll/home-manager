@@ -1,11 +1,11 @@
 { pkgs, ... }: {
-  home.packages = [ pkgs.git ];
-
   config = {
     programs.mrr-neovim = {
       enable = true;
       include_lsps = true;
     };
+
+  home.packages = [ pkgs.git ];
     programs.git = {
       enable = true;
       userEmail = "matt@rollender.com";

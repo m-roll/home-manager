@@ -1,12 +1,5 @@
-{ config, pkgs, lib, ... }:
-let cfg = config.mrr.display;
-in {
-  options.mrr.display = {
-    enable = lib.mkEnableOption "Display related stuff";
-    includeDiscord = lib.mkOption { default = true; };
-
-  };
-  config = lib.mkIf cfg.enable {
+{ config, pkgs, lib, ... }: {
+  config = {
     xresources.properties = {
       "xft.dpi" = 96;
       "xft.antialias" = true;
@@ -14,7 +7,7 @@ in {
       "xft.autohint" = false;
       "xft.hintstyle" = "hintslight";
     };
-    home.file.".config/i3/config".text = (import ./static/i3/config.nix {
+    home.file.".config/i3/config".text = (import ../../static/i3/config.nix {
       dmenu_opts =
         ''-fn "FiraCode Nerd Font" -nf "#f0d48b" -sb "#f0d48b" -sf "#1b1e26"'';
     });
