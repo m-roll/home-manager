@@ -1,14 +1,11 @@
-{ pkgs, lib, ... }:
-
-let
-  wallpaper_out = "wallpapers/wallpaper.jpg";
-  wallpaper_in = wallpapers/pexels-liam-moore-11372619.jpg;
-in {
+{ pkgs, lib, config, ... }: {
 
   imports = [ ./lib/mrr.nix ];
 
   home.username = "mrr";
   home.homeDirectory = "/home/mrr";
+  mrr.wallpaper_out = "wallpapers/wallpaper.jpg";
+  mrr.wallpaper_in = wallpapers/pexels-liam-moore-11372619.jpg;
 
   mrr.kitty.theme-name = "ayu_mirage";
   mrr.kitty.font-name = "FiraCode Nerd Font";
@@ -38,7 +35,6 @@ in {
     pkgs.transmission
     pkgs.slack-term
   ] ++ import ./pkgs/langs.nix { inherit pkgs; };
-
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -50,7 +46,7 @@ in {
       export ZSH_TMUX_AUTOSTART=true
     '';
     initExtra = ''
-      feh --bg-fill ~/${wallpaper_out}
+      feh --bg-fill ~/${config.mrr.wallpaper_out}
       [ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
     '';
     history = { };
@@ -58,5 +54,5 @@ in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  home.file.${wallpaper_out}.source = wallpaper_in;
+  home.file.${config.mrr.wallpaper_out}.source = config.mrr.wallpaper_in;
 }

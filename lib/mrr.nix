@@ -1,4 +1,4 @@
-{ ... }: {
+{ lib, ... }: {
   imports = [
     ./mrr/gaming.nix
     ./mrr/fonts.nix
@@ -11,7 +11,12 @@
     ./mrr/starship.nix
   ];
 
-  options = { mrr = { }; };
+  options = {
+    mrr = {
+      wallpaper_out = lib.mkOption { type = lib.types.str; };
+      wallpaper_in = lib.mkOption { type = lib.types.path; };
+    };
+  };
 
   config = { mrr = { }; };
 }
