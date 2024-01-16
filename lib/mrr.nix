@@ -8,6 +8,7 @@
     ./mrr/browsers.nix
     ./mrr/development.nix
     ./mrr/kitty.nix
+    ./mrr/starship.nix
   ];
 
   options = { mrr = { }; };

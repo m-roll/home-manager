@@ -1,6 +1,7 @@
-{
+{ pkgs, ... }: {
+  programs.starship = {
     enable = true;
-    enableZshIntegration = true;
+    enableZshIntegration = true; # TODO only if zsh enabled
     settings = {
       nix_shell = {
         disabled = false;
@@ -14,4 +15,5 @@
       };
       haskell.symbol = " ";
     };
-  }
+  };
+}

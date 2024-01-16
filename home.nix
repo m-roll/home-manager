@@ -13,9 +13,6 @@ in {
   mrr.kitty.theme-name = "ayu_mirage";
   mrr.kitty.font-name = "FiraCode Nerd Font";
 
-  # This is a hack: unstable NixOS and 23.05 home-manager are conflicting here
-  manual.manpages.enable = false;
-
   # Don't change this
   home.stateVersion = "23.05";
 
@@ -32,18 +29,6 @@ in {
     enableZshIntegration = true;
     keys = [ "id_rsa" ];
   };
-  services.dunst = {
-    enable = true;
-    settings = {
-      spotify = {
-        appname = "Spotify";
-        urgency = "normal";
-        script =
-          "~/.scripts/spotify_log.sh"; # https://wittchen.io/posts/spotify-song-in-i3-status-bar/
-      };
-    };
-  };
-  programs.feh = { enable = true; };
   home.packages = [
     pkgs.htop
     pkgs.zsh
@@ -54,9 +39,6 @@ in {
     pkgs.slack-term
   ] ++ import ./pkgs/langs.nix { inherit pkgs; };
 
-  home.sessionVariables = { BROWSER = "brave"; };
-
-  programs.starship = import ./starship.nix;
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
