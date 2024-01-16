@@ -7,6 +7,7 @@
     ./mrr/display.nix
     ./mrr/browsers.nix
     ./mrr/development.nix
+    ./mrr/kitty.nix
   ];
 
   options = { mrr = { }; };

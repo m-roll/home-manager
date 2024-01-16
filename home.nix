@@ -1,9 +1,6 @@
 { pkgs, lib, ... }:
 
 let
-  # Themes for kitty soured from https://github.com/dexpota/kitty-themes/tree/master/themes
-  kitty-theme-name = "ayu_mirage";
-  font-name = "FiraCode Nerd Font";
   wallpaper_out = "wallpapers/wallpaper.jpg";
   wallpaper_in = wallpapers/pexels-liam-moore-11372619.jpg;
 in {
@@ -12,6 +9,9 @@ in {
 
   home.username = "mrr";
   home.homeDirectory = "/home/mrr";
+
+  mrr.kitty.theme-name = "ayu_mirage";
+  mrr.kitty.font-name = "FiraCode Nerd Font";
 
   # This is a hack: unstable NixOS and 23.05 home-manager are conflicting here
   manual.manpages.enable = false;
@@ -54,16 +54,8 @@ in {
     pkgs.slack-term
   ] ++ import ./pkgs/langs.nix { inherit pkgs; };
 
-  home.sessionVariables = {
-    BROWSER = "brave";
-    TERMINAL = "kitty";
-  };
+  home.sessionVariables = { BROWSER = "brave"; };
 
-  programs.kitty = import ./kitty.nix {
-    inherit pkgs;
-    inherit kitty-theme-name;
-    inherit font-name;
-  };
   programs.starship = import ./starship.nix;
   programs.zsh = {
     enable = true;
