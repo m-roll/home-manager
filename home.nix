@@ -35,6 +35,7 @@
     pkgs.transmission
     pkgs.slack-term
     pkgs.protonvpn-cli
+    pkgs.wireguard-go
   ] ++ import ./pkgs/langs.nix { inherit pkgs; };
   programs.zsh = {
     enable = true;
