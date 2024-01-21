@@ -34,6 +34,7 @@
     pkgs.gpx-viewer
     pkgs.transmission
     pkgs.slack-term
+    pkgs.protonvpn-cli
   ] ++ import ./pkgs/langs.nix { inherit pkgs; };
   programs.zsh = {
     enable = true;
