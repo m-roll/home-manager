@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, config, ... }: {
 
   imports = [ ./lib/mrr.nix ];
 
@@ -13,14 +13,6 @@
   # Don't change this
   home.stateVersion = "23.05";
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "steam" "steam-original" "discord" ];
-
-  programs.ssh = {
-    enable = true;
-    addKeysToAgent = "yes";
-    matchBlocks."github.com".forwardAgent = true;
-  };
   programs.keychain = {
     enable = true;
     enableZshIntegration = true;
@@ -32,11 +24,7 @@
     pkgs.openssl
     pkgs.xclip
     pkgs.gpx-viewer
-    pkgs.transmission
     pkgs.slack-term
-    pkgs.protonvpn-cli
-    pkgs.wireguard-go
-    pkgs.wireguard-tools
     pkgs.gdb
     pkgs.libva-utils
     pkgs.unzip
