@@ -37,6 +37,9 @@
     pkgs.protonvpn-cli
     pkgs.wireguard-go
     pkgs.wireguard-tools
+    pkgs.gdb
+    pkgs.libva-utils
+    pkgs.unzip
   ] ++ import ./pkgs/langs.nix { inherit pkgs; };
   programs.zsh = {
     enable = true;
