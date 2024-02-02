@@ -23,7 +23,7 @@
     pkgs.gdb
     pkgs.libva-utils
     pkgs.unzip
-  ] ++ import ./pkgs/langs.nix { inherit pkgs; };
+  ];
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
