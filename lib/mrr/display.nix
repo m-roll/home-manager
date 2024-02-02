@@ -13,6 +13,7 @@
     });
     home.file.".dmenurc".source = ../../static/.dmenurc;
     home.file.".config/i3status/config".source = ../../static/i3status/config;
+    home.packages = [ pkgs.libva-utils ];
     services.picom = {
       enable = true;
       fade = true;

@@ -15,13 +15,11 @@
 
   home.packages = [
     pkgs.htop
-    pkgs.zsh
     pkgs.openssl
     pkgs.xclip
     pkgs.gpx-viewer
     pkgs.slack-term
     pkgs.gdb
-    pkgs.libva-utils
     pkgs.unzip
   ];
 
