@@ -9,6 +9,7 @@
     ./mrr/development.nix
     ./mrr/kitty.nix
     ./mrr/starship.nix
+    ./mrr/security.nix
   ];
 
   options = {

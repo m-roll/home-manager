@@ -13,11 +13,6 @@
   # Don't change this
   home.stateVersion = "23.05";
 
-  programs.keychain = {
-    enable = true;
-    enableZshIntegration = true;
-    keys = [ "id_rsa" ];
-  };
   home.packages = [
     pkgs.htop
     pkgs.zsh
