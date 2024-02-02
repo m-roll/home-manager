@@ -24,22 +24,7 @@
     pkgs.libva-utils
     pkgs.unzip
   ];
-  programs.zsh = {
-    enable = true;
-    enableAutosuggestions = true;
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" "git-extras" "man" "sudo" ];
-    };
-    profileExtra = ''
-      export ZSH_TMUX_AUTOSTART=true
-    '';
-    initExtra = ''
-      feh --bg-fill ~/${config.mrr.wallpaper_out}
-      [ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
-    '';
-    history = { };
-  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
