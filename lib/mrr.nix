@@ -8,6 +8,7 @@
     ./mrr/development.nix
     ./mrr/security.nix
     ./mrr/langs.nix
+    ./mrr/networking.nix
     ./mrr/terminal.nix
   ];
 
