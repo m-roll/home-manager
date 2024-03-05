@@ -21,6 +21,7 @@
     pkgs.slack-term
     pkgs.gdb
     pkgs.unzip
+    pkgs.OSCAR
   ];
 
   # Let Home Manager install and manage itself.
