@@ -9,22 +9,19 @@
     };
     my-nvim.url = "github:m-roll/nvim-config";
     my-nvim.inputs.nixpkgs.follows = "nixpkgs";
-    nix-gaming.url = "github:fufexan/nix-gaming";
     kitty-themes = {
       url = "github:dexpota/kitty-themes";
       flake = false;
     };
   };
 
-  outputs =
-    { self, nixpkgs, home-manager, my-nvim, nix-gaming, kitty-themes, ... }:
+  outputs = { self, nixpkgs, home-manager, my-nvim, kitty-themes, ... }:
     let
       system = "x86_64-linux";
       steam-proton-ge-overlay = (_: prev: {
         steam = prev.steam.override {
-          extraProfile = "export STEAM_EXTRA_COMPAT_TOOLS_PATHS='${
-              nix-gaming.packages.${pkgs.system}.proton-ge
-            }'";
+          extraProfile =
+            "export STEAM_EXTRA_COMPAT_TOOLS_PATHS='${prev.proton-ge-bin}'";
         };
       });
       overlays = [ steam-proton-ge-overlay ];
