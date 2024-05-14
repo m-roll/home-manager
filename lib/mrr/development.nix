@@ -13,6 +13,7 @@
     };
     home.sessionVariables = {
       EDITOR = "nvim";
+      GIT_EDITOR = "nvim";
       VISUAL = "less";
     };
   };

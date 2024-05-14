@@ -13,6 +13,7 @@
   # Don't change this
   home.stateVersion = "23.05";
 
+  # Don't keep stuff here -- use modules to sort these when there's time to do so.
   home.packages = [
     pkgs.htop
     pkgs.openssl
@@ -22,6 +23,8 @@
     pkgs.gdb
     pkgs.unzip
     pkgs.OSCAR
+    pkgs.CuboCore.coreshot
+    pkgs.remind
   ];
 
   # Let Home Manager install and manage itself.

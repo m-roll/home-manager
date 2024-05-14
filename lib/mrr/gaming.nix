@@ -8,6 +8,7 @@
       "steam"
       "steam-original"
       "discord"
+      "minecraft-launcher"
     ]; # using gtkcord should allow me to remove discord from this
   };
 }
