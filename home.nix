@@ -1,6 +1,6 @@
 { pkgs, config, ... }: {
 
-  imports = [ ./lib/mrr.nix ];
+  imports = [ ./modules/mrr.nix ];
 
   home.username = "mrr";
   home.homeDirectory = "/home/mrr";
