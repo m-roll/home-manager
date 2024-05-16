@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   imports = [
     ./terminal/tmux.nix
     ./terminal/kitty.nix

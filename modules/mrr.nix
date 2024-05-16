@@ -1,4 +1,5 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
   imports = [
     ./mrr/gaming.nix
     ./mrr/fonts.nix
@@ -19,5 +20,7 @@
     };
   };
 
-  config = { mrr = { }; };
+  config = {
+    mrr = { };
+  };
 }

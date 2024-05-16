@@ -1,6 +1,8 @@
 { config, lib, ... }:
-let cfg = config.mrr.kitty;
-in {
+let
+  cfg = config.mrr.kitty;
+in
+{
   options.mrr.kitty = {
     themes-package = lib.mkOption { type = lib.types.package; };
     theme-name = lib.mkOption { type = lib.types.str; };

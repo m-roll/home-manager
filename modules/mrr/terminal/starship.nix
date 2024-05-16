@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.starship = {
     enable = true;
     enableZshIntegration = true; # TODO only if zsh enabled

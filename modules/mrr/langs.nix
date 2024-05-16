@@ -1,1 +1,7 @@
-{ pkgs, ... }: { home.packages = [ pkgs.ghc pkgs.guile ]; }
+{ pkgs, ... }:
+{
+  home.packages = [
+    pkgs.ghc
+    pkgs.guile
+  ];
+}
