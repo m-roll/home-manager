@@ -17,7 +17,6 @@
       export ZSH_TMUX_AUTOSTART=true
     '';
     initExtra = ''
-      feh --bg-fill ~/${config.mrr.wallpaper_out}
       [ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
     '';
     history = { };

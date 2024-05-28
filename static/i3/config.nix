@@ -110,6 +110,7 @@ in
   bindsym $mod+w layout tabbed
   bindsym $mod+e layout toggle split
 
+
   # toggle tiling / floating
   bindsym $mod+Shift+space floating toggle
 
@@ -232,4 +233,12 @@ in
   client.placeholder	$yellow		$blue		$yellow		$yellow 	$yellow
 
   client.background	$blue
+
+  # multiple monitors
+
+  exec --no-startup-id autorandr --change &
+
+  workspace $ws1 output HDMI-0
+  workspace $ws2 output DP-2
+
 ''

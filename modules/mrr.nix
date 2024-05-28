@@ -11,6 +11,7 @@
     ./mrr/langs.nix
     ./mrr/networking.nix
     ./mrr/terminal.nix
+    ./mrr/autorandr.nix
   ];
 
   options = {

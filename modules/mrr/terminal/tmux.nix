@@ -33,6 +33,8 @@
         set -g @catppuccin_status_right_separator_inverse "yes"
         set -g @catppuccin_status_fill "all"
         set -g @catppuccin_status_connect_separator "no"
+
+        set-option -g renumber-windows on
       '';
     };
   };

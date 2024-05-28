@@ -26,6 +26,7 @@
     pkgs.OSCAR
     pkgs.CuboCore.coreshot
     pkgs.remind
+    pkgs.cdrtools
   ];
 
   # Let Home Manager install and manage itself.
