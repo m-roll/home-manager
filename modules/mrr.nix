@@ -2,6 +2,7 @@
 {
   imports = [
     ./mrr/gaming.nix
+    ./mrr/newsboat.nix
     ./mrr/fonts.nix
     ./mrr/media.nix
     ./mrr/display.nix
