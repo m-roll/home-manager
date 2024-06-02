@@ -21,6 +21,19 @@
     extraConfig = ''
       color info green black
       color listfocus_unread green black bold
+
+      unbind-key ENTER
+      unbind-key j
+      unbind-key J
+      unbind-key k
+      unbind-key K
+      bind-key j down
+      bind-key k up
+      bind-key l open
+      bind-key h quit
+
+      macro m set browser "mpv %u"; open-in-browser ; set browser "w3m %u"
+      macro l set browser "brave %u"; open-in-browser ; set browser "w3m %u"
     '';
   };
 }
