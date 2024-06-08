@@ -26,7 +26,10 @@
     pkgs.OSCAR
     pkgs.CuboCore.coreshot
     pkgs.remind
+
+    # CD burning stuff
     pkgs.cdrtools
+    pkgs.ffmpeg_7-headless
   ];
 
   # Let Home Manager install and manage itself.
