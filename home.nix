@@ -30,6 +30,9 @@
     # CD burning stuff
     pkgs.cdrtools
     pkgs.ffmpeg_7-headless
+
+    #misc
+    pkgs.file
   ];
 
   # Let Home Manager install and manage itself.
