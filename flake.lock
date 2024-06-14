@@ -41,11 +41,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1718141734,
-        "narHash": "sha256-cA+6l8ZCZ7MXGijVuY/1f55+wF/RT4PlTR9+g4bx86w=",
+        "lastModified": 1718243258,
+        "narHash": "sha256-abBpj2VU8p6qlRzTU8o22q68MmOaZ4v8zZ4UlYl5YRU=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "892f76bd0aa09a0f7f73eb41834b8a904b6d0fad",
+        "rev": "8d5e27b4807d25308dfe369d5a923d87e7dbfda3",
         "type": "github"
       },
       "original": {
@@ -80,11 +80,11 @@
         "rose-pine": "rose-pine"
       },
       "locked": {
-        "lastModified": 1715999811,
-        "narHash": "sha256-llC1cjcTNpjDH/3VyeSf5wGkRQZUrG8x2MI+4FcrovU=",
+        "lastModified": 1718332238,
+        "narHash": "sha256-9utYdeAqUcYfOyiYSqTCV5/w6niyrN5J3i/j2pU/ra4=",
         "owner": "m-roll",
         "repo": "nvim-config",
-        "rev": "6a099fdf19b7255e76a8c5c99e876991bbace74d",
+        "rev": "95e1ad976be031a0c6c8d2341da472fa04eeffb8",
         "type": "github"
       },
       "original": {
@@ -131,11 +131,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1718120687,
-        "narHash": "sha256-Kd4llQ39Ge4Op2R6MhM4U7TJQWX6gqFiu2988TH+7wg=",
+        "lastModified": 1718149104,
+        "narHash": "sha256-Ds1QpobBX2yoUDx9ZruqVGJ/uQPgcXoYuobBguyKEh8=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4bf2ef5ac2bf016aabe80b09ba5c0eef9829a664",
+        "rev": "e913ae340076bbb73d9f4d3d065c2bca7caafb16",
         "type": "github"
       },
       "original": {
