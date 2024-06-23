@@ -249,11 +249,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1718243258,
-        "narHash": "sha256-abBpj2VU8p6qlRzTU8o22q68MmOaZ4v8zZ4UlYl5YRU=",
+        "lastModified": 1719037157,
+        "narHash": "sha256-aOKd8+mhBsLQChCu1mn/W5ww79ta5cXVE59aJFrifM8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "8d5e27b4807d25308dfe369d5a923d87e7dbfda3",
+        "rev": "cd886711998fe5d9ff7979fdd4b4cbd17b1f1511",
         "type": "github"
       },
       "original": {
@@ -302,14 +302,15 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "rose-pine": "rose-pine"
+        "rose-pine": "rose-pine",
+        "vim-nickel": "vim-nickel"
       },
       "locked": {
-        "lastModified": 1718458221,
-        "narHash": "sha256-y4ChNMC5alEMRrxKt34BiwaeCpkBoIdCRqXGjjhcJX0=",
+        "lastModified": 1718496798,
+        "narHash": "sha256-fvSTtJyZAAq1FXarQvq+AB5LMZ3NEdti8o4PmlDfFzo=",
         "owner": "m-roll",
         "repo": "nvim-config",
-        "rev": "446f5bd2842df3debc3e4170a84f9bc0cda86caf",
+        "rev": "4d54551fc6cf918c46c2340e7882476efd22832a",
         "type": "github"
       },
       "original": {
@@ -515,11 +516,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1718276985,
-        "narHash": "sha256-u1fA0DYQYdeG+5kDm1bOoGcHtX0rtC7qs2YA2N1X++I=",
+        "lastModified": 1719082008,
+        "narHash": "sha256-jHJSUH619zBQ6WdC21fFAlDxHErKVDJ5fpN0Hgx4sjs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "3f84a279f1a6290ce154c5531378acc827836fbb",
+        "rev": "9693852a2070b398ee123a329e68f0dab5526681",
         "type": "github"
       },
       "original": {
@@ -775,6 +776,22 @@
       "original": {
         "owner": "tweag",
         "repo": "topiary",
+        "type": "github"
+      }
+    },
+    "vim-nickel": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1695740542,
+        "narHash": "sha256-wb8UNs0eF6939pjZWafDoFgRh/10rKorJFZtPbTkn/k=",
+        "owner": "nickel-lang",
+        "repo": "vim-nickel",
+        "rev": "f22898d88affc0958453b42e1147ba076637e0ed",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nickel-lang",
+        "repo": "vim-nickel",
         "type": "github"
       }
     }
