@@ -13,6 +13,8 @@
     ./mrr/networking.nix
     ./mrr/terminal.nix
     ./mrr/autorandr.nix
+    # the zmk cli needs to mature a bit atm. I may PR it so it doesn't require github
+    # ./mrr/zmk.nix
   ];
 
   options = {

@@ -20,7 +20,6 @@
     pkgs.openssl
     pkgs.xclip
     pkgs.gpx-viewer
-    pkgs.slack-term
     pkgs.gdb
     pkgs.unzip
     pkgs.OSCAR
@@ -30,9 +29,14 @@
     # CD burning stuff
     pkgs.cdrtools
     pkgs.ffmpeg_7-headless
+    pkgs.vlc
 
     #misc
     pkgs.file
+    pkgs.coreutils
+    pkgs.bluez
+    pkgs.ungoogled-chromium
+    pkgs.python312Packages.west
   ];
 
   # Let Home Manager install and manage itself.
