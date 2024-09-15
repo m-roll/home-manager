@@ -4,7 +4,7 @@
     pkgs.wireguard-go
     pkgs.wireguard-tools
     pkgs.protonvpn-cli
-    pkgs.transmission
+    pkgs.transmission_4
     pkgs.openssl
   ];
   programs.ssh = {
