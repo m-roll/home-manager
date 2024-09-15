@@ -37,6 +37,7 @@
     pkgs.bluez
     pkgs.ungoogled-chromium
     pkgs.python312Packages.west
+    pkgs.leiningen
   ];
 
   # Let Home Manager install and manage itself.
