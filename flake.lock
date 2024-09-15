@@ -306,11 +306,11 @@
         "vim-nickel": "vim-nickel"
       },
       "locked": {
-        "lastModified": 1726439619,
-        "narHash": "sha256-ll67BS1XfcQAqszzvuOknPjAmGeuPDw93d5Hmvk7474=",
+        "lastModified": 1726439786,
+        "narHash": "sha256-l10B/Tjs9FWd32j7yDm46MW0Gsg5KZK4r0f+ub1yGrA=",
         "owner": "m-roll",
         "repo": "nvim-config",
-        "rev": "708f85aa4d499c80d8bbdafc0b4a85640cc0e6bd",
+        "rev": "484606aae6f359d6f4fc67b6fdab46754a11dd02",
         "type": "github"
       },
       "original": {
