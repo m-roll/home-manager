@@ -6,7 +6,7 @@
   home.username = "mrr";
   home.homeDirectory = "/home/mrr";
   mrr.wallpaper_out = "wallpapers/wallpaper.jpg";
-  mrr.wallpaper_in = static/wallpapers/pexels-liam-moore-11372619.jpg;
+  mrr.wallpaper_in = static/wallpapers/a2121346445_10.jpg;
 
   mrr.kitty.theme-name = "ayu_mirage";
   mrr.kitty.font-name = "FiraCode Nerd Font";
