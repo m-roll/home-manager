@@ -7,12 +7,27 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    my-nvim.url = "github:m-roll/nvim-config";
-    my-nvim.inputs.nixpkgs.follows = "nixpkgs";
     kitty-themes = {
       url = "github:dexpota/kitty-themes";
       flake = false;
     };
+    rose-pine = {
+      url = "github:rose-pine/neovim";
+      flake = false;
+    };
+
+    nil = {
+      url = "github:oxalica/nil";
+    };
+    conform = {
+      url = "github:stevearc/conform.nvim";
+      flake = false;
+    };
+    vim-nickel = {
+      url = "github:nickel-lang/vim-nickel";
+      flake = false;
+    };
+    nickel.url = "github:tweag/nickel/stable";
   };
 
   outputs =
@@ -20,8 +35,12 @@
       self,
       nixpkgs,
       home-manager,
-      my-nvim,
       kitty-themes,
+      rose-pine,
+      nil,
+      conform,
+      nickel,
+      vim-nickel,
       ...
     }:
     let
@@ -43,7 +62,11 @@
           inherit pkgs;
           modules = [
             ./home.nix
-            my-nvim.nixosModules."home-manager"
+            (import ./modules/mrr/nvim_config/modules/home-manager.nix {
+              inherit rose-pine conform vim-nickel;
+              nickel-lang-lsp = nickel.packages.${system}.nickel-lang-lsp;
+              nil = nil.packages.${system}.default;
+            })
             { mrr.kitty.themes-package = kitty-themes; } # anonymous module for passing GH inputs into modules
           ];
         };
