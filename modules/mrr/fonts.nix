@@ -1,8 +1,12 @@
 { pkgs, ... }:
 {
   home.packages = [
-    pkgs.nerd-fonts.fira-code
-    pkgs.nerd-fonts.droid-sans-mono
+    (pkgs.nerdfonts.override {
+      fonts = [
+        "FiraCode"
+        "DroidSansMono"
+      ];
+    })
   ];
 
   fonts.fontconfig.enable = true;
