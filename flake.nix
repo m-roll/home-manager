@@ -66,7 +66,6 @@
               inherit rose-pine conform vim-nickel;
               nickel-lang-lsp = nickel.packages.${system}.nickel-lang-lsp;
               nil = nil.packages.${system}.default;
-              custom-plugin-src = ./modules/mrr/nvim_config/src;
             })
             { mrr.kitty.themes-package = kitty-themes; } # anonymous module for passing GH inputs into modules
           ];

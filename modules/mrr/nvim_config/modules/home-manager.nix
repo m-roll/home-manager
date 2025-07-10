@@ -1,6 +1,5 @@
 {
   rose-pine,
-  custom-plugin-src,
   nil,
   conform,
   nickel-lang-lsp,
@@ -14,7 +13,6 @@
   ...
 }:
 let
-  cfg = config.programs.mrr-neovim;
   vimPlugins = pkgs.vimPlugins.extend (
     final': prev': {
       rose-pine = pkgs.vimUtils.buildVimPlugin {
@@ -23,7 +21,7 @@ let
       };
       mrr-config = pkgs.vimUtils.buildVimPlugin {
         name = "mrr-config";
-        src = custom-plugin-src;
+        src = ../src;
       };
       conform = pkgs.vimUtils.buildVimPlugin {
         name = "conform";
@@ -45,7 +43,7 @@ let
     nickel-lang-lsp
   ];
   custom-neovim = {
-    enable = cfg.enable;
+    enable = true;
     extraLuaConfig = ''
       NVIM_CONFIG_ELIXIR_LS_PATH = "${pkgs.elixir-ls}/lib/language_server.sh"
       require("mrr");
@@ -73,12 +71,8 @@ let
   };
 in
 {
-  options.programs.mrr-neovim = {
-    enable = lib.mkEnableOption "neovim with mrr config";
-    include_lsps = lib.mkOption { type = lib.types.bool; };
+  config = {
+    programs.neovim = custom-neovim;
+    home.packages = lsps;
   };
-  config = lib.mkMerge [
-    (lib.mkIf cfg.enable { programs.neovim = custom-neovim; })
-    (lib.mkIf cfg.include_lsps { home.packages = lsps; })
-  ];
 }
