@@ -1,11 +1,6 @@
 { pkgs, ... }:
 {
   config = {
-    programs.mrr-neovim = {
-      enable = true;
-      include_lsps = true;
-    };
-
     home.packages = [
       pkgs.git
       pkgs.cabal-install

@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.mrr.kitty;
 in
@@ -12,7 +17,8 @@ in
     programs.kitty = {
       enable = true;
       font = {
-        name = cfg.font-name;
+        package = pkgs.nerd-fonts.sauce-code-pro;
+        name = "SauceCodePro Nerd Font";
         size = 10;
       };
       extraConfig = ''
