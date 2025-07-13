@@ -28,10 +28,11 @@
       flake = false;
     };
     nickel.url = "github:tweag/nickel/stable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
   outputs =
-    {
+    inputs@{
       self,
       nixpkgs,
       home-manager,
@@ -41,6 +42,7 @@
       conform,
       nickel,
       vim-nickel,
+      flake-parts,
       ...
     }:
     let
@@ -56,21 +58,24 @@
       overlay = nixpkgs.lib.composeManyExtensions overlays;
       pkgs = nixpkgs.legacyPackages.${system}.extend overlay;
     in
-    {
-      homeConfigurations = {
-        "mrr" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            ./home.nix
-            (import ./modules/mrr/nvim_config/modules/home-manager.nix {
-              inherit rose-pine conform vim-nickel;
-              nickel-lang-lsp = nickel.packages.${system}.nickel-lang-lsp;
-              nil = nil.packages.${system}.default;
-            })
-            { mrr.kitty.themes-package = kitty-themes; } # anonymous module for passing GH inputs into modules
-          ];
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      flake = {
+        homeConfigurations = {
+          "mrr" = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            modules = [
+              ./home.nix
+              (import ./modules/mrr/nvim_config/modules/home-manager.nix {
+                inherit rose-pine conform vim-nickel;
+                nickel-lang-lsp = nickel.packages.${system}.nickel-lang-lsp;
+                nil = nil.packages.${system}.default;
+              })
+              { mrr.kitty.themes-package = kitty-themes; } # anonymous module for passing GH inputs into modules
+            ];
+          };
         };
+        formatter.${system} = pkgs.nixfmt-rfc-style;
       };
-      formatter.${system} = pkgs.nixfmt-rfc-style;
+      systems = [ "x86_64-linux" ];
     };
 }
