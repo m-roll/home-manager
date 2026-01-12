@@ -19,10 +19,9 @@
     pkgs.htop
     pkgs.openssl
     pkgs.xclip
-    pkgs.gpx-viewer
     pkgs.gdb
     pkgs.unzip
-    pkgs.OSCAR
+    pkgs.oscar
     pkgs.CuboCore.coreshot
     pkgs.remind
 

@@ -7,8 +7,8 @@
     ];
     programs.git = {
       enable = true;
-      userEmail = "matt@rollender.com";
-      userName = "Matt Rollender";
+      settings.user.email = "matt@rollender.com";
+      settings.user.name = "Matt Rollender";
     };
     home.sessionVariables = {
       EDITOR = "nvim";

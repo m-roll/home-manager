@@ -68,7 +68,8 @@ in
         vimPlugins.conjure
         vimPlugins.cmp-conjure
         # todo: add the cmp conjure for nrepl
-        (vimPlugins.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
+        # all grammars pulls in way too many deps that aren't really maintained
+        # (vimPlugins.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
       ];
     };
     home.packages = [
