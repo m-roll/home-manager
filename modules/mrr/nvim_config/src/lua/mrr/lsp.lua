@@ -1,19 +1,14 @@
 local lspconfig = require("lspconfig")
 local format_group = vim.api.nvim_create_augroup("__formatter__", {})
 
-vim.lsp.enable({ "pyright" })
-vim.lsp.enable({ "lua_ls" })
-vim.lsp.enable({ "ts_ls" })
-vim.lsp.enable({ "nil_ls" })
-vim.lsp.config({ "hls", {
-	filetypes = { "haskell", "lhaskell", "cabal" }
-}})
-vim.lsp.enable({ "hls" })
-vim.lsp.config({ "elixirls", {
-	cmd = { NVIM_CONFIG_ELIXIR_LS_PATH }
-}
-vim.lsp.enable({ "elixirls" })
-vim.lsp.enable({ "nickel_ls" })
+vim.lsp.config("hls", {
+    filetypes = { "haskell", "lhaskell", "cabal" },
+})
+vim.lsp.config("elixirls", {
+    cmd = { NVIM_CONFIG_ELIXIR_LS_PATH },
+})
+
+vim.lsp.enable({ "pyright", "lua_ls", "ts_ls", "nil_ls", "hls", "elixirls", "nickel_ls" })
 
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
