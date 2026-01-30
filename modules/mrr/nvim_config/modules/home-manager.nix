@@ -46,7 +46,7 @@ in
   config = {
     programs.neovim = {
       enable = true;
-      extraLuaConfig = ''
+      initLua = ''
         NVIM_CONFIG_ELIXIR_LS_PATH = "${pkgs.elixir-ls}/lib/language_server.sh"
         require("mrr");
       '';
@@ -77,7 +77,7 @@ in
       pkgs.haskellPackages.haskell-language-server
       nil
       pkgs.elixir-ls
-      pkgs.nixfmt-rfc-style
+      pkgs.nixfmt
       pkgs.stylua
       nickel-lang-lsp
     ];

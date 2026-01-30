@@ -16,7 +16,7 @@
     profileExtra = ''
       export ZSH_TMUX_AUTOSTART=true
     '';
-    initExtra = ''
+    initContent = ''
       [ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
     '';
     history = { };
