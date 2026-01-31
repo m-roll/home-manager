@@ -37,6 +37,7 @@
     pkgs.ungoogled-chromium
     pkgs.python312Packages.west
     pkgs.leiningen
+    pkgs.prismlauncher
   ];
 
   # Let Home Manager install and manage itself.
