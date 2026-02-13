@@ -38,6 +38,7 @@
     pkgs.python312Packages.west
     pkgs.leiningen
     pkgs.prismlauncher
+    pkgs.dig
   ];
 
   # Let Home Manager install and manage itself.
