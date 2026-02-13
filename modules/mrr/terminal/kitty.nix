@@ -19,7 +19,7 @@ in
       font = {
         package = pkgs.nerd-fonts.sauce-code-pro;
         name = "SauceCodePro Nerd Font";
-        size = 10;
+        size = 14;
       };
       extraConfig = ''
         include ${cfg.themes-package}/themes/${cfg.theme-name}.conf
