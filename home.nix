@@ -39,6 +39,7 @@
     pkgs.leiningen
     pkgs.prismlauncher
     pkgs.dig
+    pkgs.gamescope
   ];
 
   # Let Home Manager install and manage itself.
