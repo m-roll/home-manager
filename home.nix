@@ -14,6 +14,10 @@
   # Don't change this
   home.stateVersion = "23.05";
 
+  mrr.licensing.allowed_unfree_pkg_names = [
+    "clonehero"
+  ];
+
   # Don't keep stuff here -- use modules to sort these when there's time to do so.
   home.packages = [
     pkgs.htop
@@ -40,6 +44,12 @@
     pkgs.prismlauncher
     pkgs.dig
     pkgs.gamescope
+    pkgs.glfw
+    pkgs.android-tools
+    pkgs.yt-dlp-light
+    pkgs.deno
+    pkgs.unar
+    pkgs.clonehero
   ];
 
   # Let Home Manager install and manage itself.
